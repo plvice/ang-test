@@ -1,0 +1,9 @@
+<input type="text" placeholder="Wprowadź tekst" 
+[(ngModel)]="searchPhrase" (focusin)="onInputFocusin()" (focusout)="onInputFocusout()" (keyup)="onKeyup()">
+<div class="data">
+    <ul>
+        <li *ngFor="let item of filteredData">
+            <app-multiselect-item [label]="getLabelForItem(item)"></app-multiselect-item>
+        </li>
+    </ul>
+</div>

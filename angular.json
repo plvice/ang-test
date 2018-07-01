@@ -1,0 +1,219 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "testowa1": {
+      "root": "",
+      "sourceRoot": "app1",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/testowa1",
+            "index": "app1/index.html",
+            "main": "app1/main.ts",
+            "polyfills": "app1/polyfills.ts",
+            "tsConfig": "app1/tsconfig.app.json",
+            "assets": [
+              "app1/favicon.ico",
+              "app1/assets"
+            ],
+            "styles": [
+              "app1/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "app1/environments/environment.ts",
+                  "with": "app1/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "testowa1:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "testowa1:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "testowa1:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "app1/test.ts",
+            "polyfills": "app1/polyfills.ts",
+            "tsConfig": "app1/tsconfig.spec.json",
+            "karmaConfig": "app1/karma.conf.js",
+            "styles": [
+              "app1/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "app1/favicon.ico",
+              "app1/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "app1/tsconfig.app.json",
+              "app1/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "testowa2": {
+      "root": "",
+      "sourceRoot": "app2",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/testowa2",
+            "index": "app2/index.html",
+            "main": "app2/main.ts",
+            "polyfills": "app2/polyfills.ts",
+            "tsConfig": "app2/tsconfig.app.json",
+            "assets": [
+              "app2/favicon.ico",
+              "app2/assets"
+            ],
+            "styles": [
+              "app2/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "app2/environments/environment.ts",
+                  "with": "app2/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "testowa2:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "testowa2:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "testowa2:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "app2/test.ts",
+            "polyfills": "app2/polyfills.ts",
+            "tsConfig": "app2/tsconfig.spec.json",
+            "karmaConfig": "app2/karma.conf.js",
+            "styles": [
+              "app2/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "app2/favicon.ico",
+              "app2/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "app2/tsconfig.app.json",
+              "app2/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "testowa-e2e": {
+      "root": "e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "testowa:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "testowa:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "testowa1"
+}
